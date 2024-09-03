@@ -1,0 +1,32 @@
+<!-- Employee List Heading -->
+<h1 class="text-center mt-4 mb-3">Employee Management App</h1>
+
+<!-- Add Employee Button -->
+<div class="text-center mb-4">
+  <a routerLink="/add-employee" class="btn btn-primary add-employee-btn">Add New Employee</a>
+</div>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>
+          <a [routerLink]="['/edit-employee', emp.id]" class="btn btn-warning btn-sm px-4 action-btn">Edit</a>
+          <button (click)="deleteEmployee(emp.id)" class="btn btn-danger btn-sm action-btn">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
